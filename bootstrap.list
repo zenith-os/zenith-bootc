@@ -1,0 +1,7 @@
+base
+linux-zen
+linux-firmware
+intel-ucode
+amd-ucode
+btrfs-progs
+ukify
