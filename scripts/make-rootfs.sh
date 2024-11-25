@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 BUILD="/build"
 SCRIPT="/scripts"
 ROOT="/rootfs"
@@ -19,21 +21,21 @@ else
 fi
 
 if [ -f "$SCRIPT/post_bootstrap.sh" ]; then
-    arch-chroot $ROOT bash "$SCRIPT/post_bootstrap.sh"
+    chroot $ROOT bash "$SCRIPT/post_bootstrap.sh"
 else
     echo "Error: Bootstrap hook script not found: post_bootstrap.sh"
     exit 1
 fi
 
 if [ -f "$PACKAGES_LIST" ]; then
-    arch-chroot $ROOT pacman -S --noconfirm $(cat $PACKAGES_LIST)
+    chroot $ROOT pacman -S --noconfirm $(cat $PACKAGES_LIST)
 else
     echo "Error: Packages list not found: $PACKAGES_LIST"
     exit 1
 fi
 
 if [ -f "$SCRIPT/post_install.sh" ]; then
-    arch-chroot $ROOT bash "$SCRIPT/post_install.sh"
+    chroot $ROOT bash "$SCRIPT/post_install.sh"
 else
     echo "Error: Install hook script not found: post_install.sh"
     exit 1
