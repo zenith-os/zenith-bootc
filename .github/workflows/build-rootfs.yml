@@ -23,8 +23,8 @@ jobs:
         run:
             cp bootstrap.list "$PWD/scripts"
             cp packages.list "$PWD/scripts"
-            cp "$PWD/hooks/post_bootstrap.sh" "$PWD/scripts/post_bootstrap.sh"
-            cp "$PWD/hooks/post_install.sh" "$PWD/scripts/post_install.sh"
+            cp "$PWD/hooks/post_bootstrap.sh" "$PWD/scripts"
+            cp "$PWD/hooks/post_install.sh" "$PWD/scripts"
 
       - name: Build rootfs
         run: |
