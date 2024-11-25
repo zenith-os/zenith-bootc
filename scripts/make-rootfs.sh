@@ -9,7 +9,7 @@ ROOT="/rootfs"
 BOOTSTRAP_LIST="$SCRIPT/bootstrap.list"
 PACKAGES_LIST="$SCRIPT/packages.list"
 
-pacman -Sy arch-install-scripts
+pacman -Sy arch-install-scripts --no-confirm
 
 mkdir -p $ROOT
 
