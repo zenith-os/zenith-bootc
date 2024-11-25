@@ -46,13 +46,13 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: zenithos-rootfs.tar.zst
-          path: $PWD/build/zenithos-rootfs.tar.zst
+          path: ./build/zenithos-rootfs.tar.zst
 
       - name: Upload rootfs tarball artifact checksum
         uses: actions/upload-artifact@v4
         with:
           name: zenithos-rootfs.tar.zst.sha256
-          path: $PWD/build/zenithos-rootfs.tar.zst.sha256
+          path: ./build/zenithos-rootfs.tar.zst.sha256
 
       - name: Set up Podman
         uses: redhat-actions/podman-login@v1
