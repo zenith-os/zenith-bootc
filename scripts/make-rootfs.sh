@@ -23,7 +23,9 @@ fi
 ls $SCRIPT
 
 if [ -f "$SCRIPT/post_bootstrap.sh" ]; then
-    chroot $ROOT bash "$SCRIPT/post_bootstrap.sh"
+    cp "$SCRIPT/post_bootstrap.sh" $ROOT
+    chroot $ROOT bash "post_bootstrap.sh"
+    rm "$ROOT/post_bootstrap.sh"
 else
     echo "Error: Bootstrap hook script not found: post_bootstrap.sh"
     exit 1
@@ -37,7 +39,9 @@ else
 fi
 
 if [ -f "$SCRIPT/post_install.sh" ]; then
+    cp "$SCRIPT/post_install.sh" $ROOT
     chroot $ROOT bash "$SCRIPT/post_install.sh"
+    rm "$ROOT/post_install.sh"
 else
     echo "Error: Install hook script not found: post_install.sh"
     exit 1
