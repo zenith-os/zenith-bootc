@@ -2,7 +2,7 @@ FROM alpine:3.19 AS verify
 
 RUN apk add --no-cache curl tar zstd
 
-RUN ./build/ .
+COPY ./build/*.tar.zst .
 
 RUN mkdir /rootfs && \
     tar -C /rootfs --extract --file zenithos-rootfs-$(date '+%Y%m%d').tar.zst
