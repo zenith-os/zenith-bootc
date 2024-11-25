@@ -4,8 +4,8 @@ BUILD="/build"
 SCRIPT="/scripts"
 ROOT="/rootfs"
 
-BOOTSTRAP_LIST="$SCRIPTS/bootstrap.list"
-PACKAGES_LIST="$SCRIPTS/packages.list"
+BOOTSTRAP_LIST="$SCRIPT/bootstrap.list"
+PACKAGES_LIST="$SCRIPT/packages.list"
 
 mkdir -p $ROOT
 
