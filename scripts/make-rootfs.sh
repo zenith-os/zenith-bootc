@@ -7,6 +7,8 @@ ROOT="/rootfs"
 BOOTSTRAP_LIST="$SCRIPT/bootstrap.list"
 PACKAGES_LIST="$SCRIPT/packages.list"
 
+pacman -Sy arch-install-scripts
+
 mkdir -p $ROOT
 
 if [ -f "$BOOTSTRAP_LIST" ]; then
