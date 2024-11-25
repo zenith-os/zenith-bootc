@@ -37,7 +37,7 @@ else
     exit 1
 fi
 
-TAR_FILE="$BUILD/zenithos-rootfs-$(date '+%Y%m%d').tar"
+TAR_FILE="$BUILD/zenithos-rootfs.tar"
 TAR_ZST_FILE="$TAR_FILE.zst"
 
 tar --numeric-owner --xattrs --acls --exclude-from=/$SCRIPT/exclude -C /$ROOT -c . -f $TAR_FILE
