@@ -42,8 +42,8 @@ jobs:
       - name: Upload rootfs tarball artifact
         uses: actions/upload-artifact@v4
         with:
-          name: zenithos-rootfs-{{ env.date }}.tar.zst
-          path: $PWD/build/zenithos-rootfs-{{ env.date }}.tar.zst
+          name: zenithos-rootfs-*.tar.zst
+          path: $PWD/build/zenithos-rootfs-*.tar.zst
 
       - name: Upload rootfs tarball artifact checksum
         uses: actions/upload-artifact@v4
@@ -68,6 +68,6 @@ jobs:
       - name: Push container image to GHCR
         run: |
           BUILD_DATE=$(date +%Y%m%d)
-          TAG="$BUILD_DATE-boot"
+          TAG="$BUILD_DATE-bootc"
           IMAGE_NAME="ghcr.io/${{ github.repository_owner }}/zenith-os:$TAG"
           podman push "$IMAGE_NAME"
