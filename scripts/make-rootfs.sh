@@ -4,8 +4,8 @@ BUILD="/build"
 SCRIPT="/scripts"
 ROOT="/rootfs"
 
-BOOTSTRAP_LIST="bootstrap.list"
-PACKAGES_LIST="packages.list"
+BOOTSTRAP_LIST="$SCRIPTS/bootstrap.list"
+PACKAGES_LIST="$SCRIPTS/packages.list"
 
 mkdir -p $ROOT
 
@@ -16,10 +16,10 @@ else
     exit 1
 fi
 
-if [ -f "$SCRIPT/hooks/post_bootstrap.sh" ]; then
-    bash "$SCRIPT/hooks/post_bootstrap.sh"
+if [ -f "$SCRIPT/post_bootstrap.sh" ]; then
+    arch-chroot $ROOT bash "$SCRIPT/post_bootstrap.sh"
 else
-    echo "Error: Bootstrap hook script not found: hooks/post_bootstrap.sh"
+    echo "Error: Bootstrap hook script not found: post_bootstrap.sh"
     exit 1
 fi
 
@@ -30,10 +30,10 @@ else
     exit 1
 fi
 
-if [ -f "$SCRIPT/hooks/post_install.sh" ]; then
-    arch-chroot $ROOT bash "$SCRIPT/hooks/post_install.sh"
+if [ -f "$SCRIPT/post_install.sh" ]; then
+    arch-chroot $ROOT bash "$SCRIPT/post_install.sh"
 else
-    echo "Error: Install hook script not found: hooks/post_install.sh"
+    echo "Error: Install hook script not found: post_install.sh"
     exit 1
 fi
 

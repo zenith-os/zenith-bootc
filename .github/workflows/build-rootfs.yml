@@ -19,6 +19,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Copy files
+        run:
+            cp bootstrap.list "$PWD/scripts"
+            cp packages.list "$PWD/scripts"
+            cp "$PWD/hooks/scripts/*" "$PWD/scripts"
+
       - name: Build rootfs
         run: |
           docker run \
