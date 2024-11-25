@@ -1,4 +1,4 @@
-name: Build and Upload rootfs and Push Image
+name: Build, upload and push
 
 on:
   workflow_dispatch:
@@ -37,10 +37,6 @@ jobs:
             --volume "$PWD/scripts:/scripts" \
             "index.docker.io/library/archlinux:latest" \
             /bin/bash -c "/scripts/make-rootfs.sh"
-
-      - name: List files
-        run:
-            ls "$PWD/build"
 
       - name: Upload rootfs tarball artifact
         uses: actions/upload-artifact@v4

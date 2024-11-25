@@ -20,6 +20,8 @@ else
     exit 1
 fi
 
+ls $SCRIPT
+
 if [ -f "$SCRIPT/post_bootstrap.sh" ]; then
     chroot $ROOT bash "$SCRIPT/post_bootstrap.sh"
 else
