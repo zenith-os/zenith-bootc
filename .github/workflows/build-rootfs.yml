@@ -35,18 +35,21 @@ jobs:
             "index.docker.io/library/archlinux:latest" \
             /bin/bash -c "/scripts/make-rootfs.sh"
 
+      - name: List files
+        run:
+            ls "$PWD/build"
 
       - name: Upload rootfs tarball artifact
         uses: actions/upload-artifact@v4
         with:
           name: zenithos-rootfs.tar.zst
-          path: ./build/zenithos-rootfs-$(date +%Y%m%d).tar.zst
+          path: $PWD/build/zenithos-rootfs-$(date +%Y%m%d).tar.zst
 
       - name: Upload rootfs tarball artifact checksum
         uses: actions/upload-artifact@v4
         with:
           name: zenithos-rootfs.tar.zst.SHA256
-          path: ./build/zenithos-rootfs-$(date +%Y%m%d).tar.zst.SHA256
+          path: $PWD/build/zenithos-rootfs-$(date +%Y%m%d).tar.zst.SHA256
 
       - name: Set up Podman
         uses: redhat-actions/podman-login@v1
