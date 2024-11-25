@@ -21,9 +21,9 @@ jobs:
 
       - name: Copy files
         run:
-            cp bootstrap.list "$PWD/scripts"
-            cp packages.list "$PWD/scripts"
-            cp "$PWD/hooks/post_bootstrap.sh" "$PWD/scripts"
+            cp bootstrap.list "$PWD/scripts" && \
+            cp packages.list "$PWD/scripts" && \
+            cp "$PWD/hooks/post_bootstrap.sh" "$PWD/scripts" && \
             cp "$PWD/hooks/post_install.sh" "$PWD/scripts"
 
       - name: Build rootfs
